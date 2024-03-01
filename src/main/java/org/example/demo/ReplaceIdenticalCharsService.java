@@ -2,21 +2,16 @@ package org.example.demo;
 
 import java.util.HashMap;
 import java.util.Map;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
 
-public class ReplaceIdenticalCharsService {
+public class ReplaceIdenticalCharsService extends AbstractIdenticalCharsService {
 
-
-    public static String replace(String input) {
+    public String convert(String input) {
         if (input == null || input.length() <= 2) {
             return input;
         }
-        String regex = "(.)\\1{2,}";
-        Pattern pattern = Pattern.compile(regex);
-        Matcher matcher = pattern.matcher(input);
-        StringBuilder sb = new StringBuilder();
-        Map<String, String> letterMap = getAlphaMap();
+        matcher= pattern.matcher(input);
+        sb = new StringBuilder();
+        Map<String, String> letterMap = getLetterMap();
         while (matcher.find()){
             if (letterMap.containsKey(String.valueOf(input.charAt(matcher.start()+1)))){
                 matcher.appendReplacement(sb,letterMap.get(String.valueOf(input.charAt(matcher.start()+1))));
@@ -24,10 +19,11 @@ public class ReplaceIdenticalCharsService {
         }
         matcher.appendTail(sb);
         if(pattern.matcher(sb).find())
-            return replace(sb.toString());
+            return convert(sb.toString());
         return sb.toString();
     }
-    private static Map<String,String> getAlphaMap(){
+
+    private static Map<String,String> getLetterMap(){
         Map<String, String> letterMap = new HashMap<>();
         letterMap.put("a","");
         letterMap.put("b","a");
