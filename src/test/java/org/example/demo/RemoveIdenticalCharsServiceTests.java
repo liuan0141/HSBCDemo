@@ -17,6 +17,8 @@ public class RemoveIdenticalCharsServiceTests {
         assertEquals("abcc", removeTest.apply("abcc"));
         assertEquals("cc", removeTest.apply("cc"));
         assertEquals("", removeTest.apply(""));
+        assertEquals("###@@@", removeTest.apply("###@@@"));
+        assertEquals("33222", removeTest.apply("33222"));
         assertNull(removeTest.apply(null));
     }
 }

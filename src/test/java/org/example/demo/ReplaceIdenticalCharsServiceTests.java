@@ -16,6 +16,9 @@ public class ReplaceIdenticalCharsServiceTests {
         assertEquals("c",replaceTest.apply("aabbcccaabbbc"));
         assertEquals("cc", replaceTest.apply("cc"));
         assertNull(replaceTest.apply(null));
+        assertEquals("###@@@", replaceTest.apply("###@@@"));
         assertEquals("",replaceTest.apply(""));
+        assertEquals("33222", replaceTest.apply("33222"));
+
     }
 }

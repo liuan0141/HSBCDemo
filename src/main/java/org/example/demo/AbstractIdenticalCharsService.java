@@ -9,4 +9,10 @@ public abstract class AbstractIdenticalCharsService {
     public StringBuilder sb= new StringBuilder();
     public Matcher matcher;
 
+    public boolean validateInput(String input){
+        if(input!=null && Pattern.compile("^[a-z]+$").matcher(input).find()){
+            return true;
+        }
+        return false;
+    }
 }

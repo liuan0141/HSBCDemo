@@ -6,7 +6,7 @@ import java.util.Map;
 public class ReplaceIdenticalCharsService extends AbstractIdenticalCharsService {
 
     public String convert(String input) {
-        if (input == null || input.length() <= 2) {
+        if (!validateInput(input)) {
             return input;
         }
         matcher= pattern.matcher(input);

@@ -2,7 +2,7 @@ package org.example.demo;
 
 public class RemoveIdenticalCharsService extends AbstractIdenticalCharsService {
     public  String convert(String input) {
-        if (input == null || input.length() <= 2) {
+        if (!validateInput(input)) {
             return input;
         }
         matcher= pattern.matcher(input);
