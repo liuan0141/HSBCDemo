@@ -6,19 +6,18 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNull;
 
 public class ReplaceIdenticalCharsServiceTests {
-    public static String test(IIdenticalCharsService service,String input){
-        return service.apply(input);
-    }
+
     @Test
     void testReplaceConsecutiveIdenticalChars() {
+        IIdenticalCharsService replaceTest = ReplaceIdenticalCharsService::replace;
 
-        assertEquals("d",test(new ReplaceIdenticalCharsService(),"aabcccbbad"));
-        assertEquals("d",test(new ReplaceIdenticalCharsService(),"abbbad"));
-        assertEquals("1122",test(new ReplaceIdenticalCharsService(),"1122"));
-        assertEquals("11b22bbc",test(new ReplaceIdenticalCharsService(),"11ccc22aaabbc"));
-        assertEquals("1122bbc",test(new ReplaceIdenticalCharsService(),"1122aaabbc"));
-        assertEquals("vv",test(new ReplaceIdenticalCharsService(),"vv"));
-        assertNull(test(new ReplaceIdenticalCharsService(),null));
-        assertEquals("",test(new ReplaceIdenticalCharsService(),""));
+        assertEquals("d",replaceTest.apply("aabcccbbad"));
+        assertEquals("d",replaceTest.apply("abbbad"));
+        assertEquals("1122",replaceTest.apply("1122"));
+        assertEquals("11b22bbc",replaceTest.apply("11ccc22aaabbc"));
+        assertEquals("1122bbc",replaceTest.apply("1122aaabbc"));
+        assertEquals("vv",replaceTest.apply("vv"));
+        assertNull(replaceTest.apply(null));
+        assertEquals("",replaceTest.apply(""));
     }
 }

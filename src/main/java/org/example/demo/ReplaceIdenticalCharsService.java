@@ -5,10 +5,10 @@ import java.util.Map;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-public class ReplaceIdenticalCharsService implements IIdenticalCharsService{
+public class ReplaceIdenticalCharsService {
 
-    @Override
-    public String apply(String input) {
+
+    public static String replace(String input) {
         if (input == null || input.length() <= 2) {
             return input;
         }
@@ -24,7 +24,7 @@ public class ReplaceIdenticalCharsService implements IIdenticalCharsService{
         }
         matcher.appendTail(sb);
         if(pattern.matcher(sb).find())
-            return apply(sb.toString());
+            return replace(sb.toString());
         return sb.toString();
     }
     private static Map<String,String> getAlphaMap(){

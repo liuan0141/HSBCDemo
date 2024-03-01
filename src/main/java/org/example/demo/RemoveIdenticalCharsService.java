@@ -3,10 +3,9 @@ package org.example.demo;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-public class RemoveIdenticalCharsService implements IIdenticalCharsService{
+public class RemoveIdenticalCharsService {
 
-    @Override
-    public String apply(String input) {
+    public static String remove(String input) {
         if (input == null || input.length() <= 2) {
             return input;
         }
@@ -20,7 +19,7 @@ public class RemoveIdenticalCharsService implements IIdenticalCharsService{
         }
         matcher.appendTail(sb);
         if(pattern.matcher(sb).find())
-            return apply(sb.toString());
+            return remove(sb.toString());
         return sb.toString();
     }
 }
