@@ -15,4 +15,6 @@ public abstract class AbstractIdenticalCharsService {
         }
         return false;
     }
+
+    public abstract String convert(String input);
 }

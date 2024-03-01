@@ -4,7 +4,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class ReplaceIdenticalCharsService extends AbstractIdenticalCharsService {
-
+    @Override
     public String convert(String input) {
         if (!validateInput(input)) {
             return input;
